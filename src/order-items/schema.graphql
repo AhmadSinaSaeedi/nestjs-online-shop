@@ -1,0 +1,12 @@
+input OrderItemInput {
+  productId: ID!
+  price: Float!
+  quantity: Int!
+}
+
+type OrderItem {
+  id: ID!
+  product: Product!
+  price: Float!
+  quantity: Int!
+}

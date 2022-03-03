@@ -1,0 +1,27 @@
+type Order {
+  id: ID
+  user: User
+  items: [OrderItem]
+  total: Float
+  # createdAt: DateTime
+}
+
+input OrderCreateInput {
+  user: ID
+  items: [OrderItemInput]
+  total: Float
+}
+
+input OrderInput {
+  user: ID
+  items: [OrderItemInput]
+  total: Float
+}
+
+type Query {
+  order(id: ID): Order
+  orders: [Order]
+}
+type Mutation {
+  orderCreate(data: OrderCreateInput): Order
+}

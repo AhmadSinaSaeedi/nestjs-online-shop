@@ -1,0 +1,39 @@
+enum CategoryEnum {
+  BOOK
+  CLOTHS
+  DIGITAL
+  FOOD
+}
+enum CategoryEnumInput {
+  BOOK
+  CLOTHS
+  DIGITAL
+  FOOD
+}
+type Product {
+  id: ID!
+  name: String
+  image: String
+  count: Int
+  price: Int
+  category: CategoryEnum
+}
+
+input ProductInput {
+  name: String!
+  count: Int
+  price: Int
+  category: CategoryEnum!
+  image: String!
+}
+
+type Mutation {
+  productCreate(input: ProductInput!): Product!
+  productUpdate(id: ID!, input: ProductInput): Product
+  productDelete(id: ID!): Boolean
+}
+
+type Query {
+  products: [Product!]!
+  product(id: ID!): Product!
+}

@@ -1,0 +1,34 @@
+type User {
+  id: ID
+  name: String
+  email: String
+  password: String
+  profileImage: String
+  #createdAt: Date!
+  #confirmationCode: String
+}
+
+input UserInput {
+  id: ID
+  name: String
+  email: String
+  #password: String
+  profileImage: String
+}
+
+#"""
+#Date custom scalar type
+#"""
+#scalar Date
+
+type Query {
+  user(id: ID): User!
+  users: [User!]!
+}
+
+type Mutation {
+  userCreate(input: UserInput): User
+  userUpdate(id: ID, input: UserInput): User
+  userDelete(id: ID!): Boolean
+  signUp(user: UserInput): Boolean
+}
